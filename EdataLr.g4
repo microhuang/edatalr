@@ -6,7 +6,7 @@ expr : expr op=('+'|'|') expr # AddOr
      | op='-' WORD          # Not
      ;
 
-WORD : [a-z]+;
+WORD : t:[a-zA-Z]+|c:[a-zA-Z]+|[a-zA-Z]+;
 ADD  : '+';
 OR   : '|';
 NOT  : '-';

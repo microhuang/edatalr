@@ -1,7 +1,7 @@
 T__0=1
 T__1=2
 WORD=3
-ADD=4
+AND=4
 OR=5
 NOT=6
 WS=7

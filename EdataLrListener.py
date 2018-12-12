@@ -31,12 +31,12 @@ class EdataLrListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EdataLrParser#AddOr.
-    def enterAddOr(self, ctx):
+    # Enter a parse tree produced by EdataLrParser#AndOr.
+    def enterAndOr(self, ctx):
         pass
 
-    # Exit a parse tree produced by EdataLrParser#AddOr.
-    def exitAddOr(self, ctx):
+    # Exit a parse tree produced by EdataLrParser#AndOr.
+    def exitAndOr(self, ctx):
         pass
 
 

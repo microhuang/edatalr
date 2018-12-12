@@ -33,7 +33,7 @@ class EdataLrParser ( Parser ):
                      u"'|'", u"'-'" ]
 
     symbolicNames = [ u"<INVALID>", u"<INVALID>", u"<INVALID>", u"WORD", 
-                      u"ADD", u"OR", u"NOT", u"WS" ]
+                      u"AND", u"OR", u"NOT", u"WS" ]
 
     RULE_expr = 0
 
@@ -43,7 +43,7 @@ class EdataLrParser ( Parser ):
     T__0=1
     T__1=2
     WORD=3
-    ADD=4
+    AND=4
     OR=5
     NOT=6
     WS=7
@@ -145,10 +145,10 @@ class EdataLrParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class AddOrContext(ExprContext):
+    class AndOrContext(ExprContext):
 
         def __init__(self, parser, ctx): # actually a EdataLrParser.ExprContext)
-            super(EdataLrParser.AddOrContext, self).__init__(parser)
+            super(EdataLrParser.AndOrContext, self).__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
@@ -160,16 +160,16 @@ class EdataLrParser ( Parser ):
 
 
         def enterRule(self, listener):
-            if hasattr(listener, "enterAddOr"):
-                listener.enterAddOr(self)
+            if hasattr(listener, "enterAndOr"):
+                listener.enterAndOr(self)
 
         def exitRule(self, listener):
-            if hasattr(listener, "exitAddOr"):
-                listener.exitAddOr(self)
+            if hasattr(listener, "exitAndOr"):
+                listener.exitAndOr(self)
 
         def accept(self, visitor):
-            if hasattr(visitor, "visitAddOr"):
-                return visitor.visitAddOr(self)
+            if hasattr(visitor, "visitAndOr"):
+                return visitor.visitAndOr(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -228,7 +228,7 @@ class EdataLrParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = EdataLrParser.AddOrContext(self, EdataLrParser.ExprContext(self, _parentctx, _parentState))
+                    localctx = EdataLrParser.AndOrContext(self, EdataLrParser.ExprContext(self, _parentctx, _parentState))
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                     self.state = 12
                     if not self.precpred(self._ctx, 4):
@@ -237,7 +237,7 @@ class EdataLrParser ( Parser ):
                     self.state = 13
                     localctx.op = self._input.LT(1)
                     _la = self._input.LA(1)
-                    if not(_la==EdataLrParser.ADD or _la==EdataLrParser.OR):
+                    if not(_la==EdataLrParser.AND or _la==EdataLrParser.OR):
                         localctx.op = self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)

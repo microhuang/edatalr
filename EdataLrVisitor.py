@@ -12,7 +12,7 @@ class EdataLrVisitor(ParseTreeVisitor):
     # Visit a parse tree produced by EdataLrParser#Not.
     # Not
     def visitNot(self, ctx):
-        return '-' + ctx.getText()
+        return '-' + ctx.WORD().getText()
 
 
     # Visit a parse tree produced by EdataLrParser#Word.

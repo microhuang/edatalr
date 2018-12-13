@@ -1,3 +1,6 @@
+# -*- coding:utf-8 -*-
+
+
 import sys
 
 from antlr4 import *
@@ -5,15 +8,24 @@ from EdataLrParser import EdataLrParser
 from EdataLrLexer import EdataLrLexer
 from EdataLrListener import EdataLrListener
 from EdataLrVisitor import EdataLrVisitor
+from EdataLrSearch import EdataLrSearch
+from EdataLrSpider import EdataLrSpider
 
 
 def main(argv):
-    input = FileStream(argv[1])
+    input = FileStream(argv[1], encoding='utf8')
     lexer = EdataLrLexer(input)
     stream = CommonTokenStream(lexer)
     parser = EdataLrParser(stream)
     tree = parser.expr()
+
     v = EdataLrVisitor()
+    print (v.visit(tree))
+
+    v = EdataLrSearch()
+    print (v.visit(tree))
+
+    v = EdataLrSpider()
     print (v.visit(tree))
 
 if __name__ == '__main__':

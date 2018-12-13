@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Generated from EdataLr.g4 by ANTLR 4.7.1
 from antlr4 import *
 from EdataLrLexer import EdataLrLexer
@@ -6,7 +8,7 @@ from EdataLrLexer import EdataLrLexer
 
 
 # 用于搜索语法解析
-class EdataLrVisitor(ParseTreeVisitor):
+class EdataLrSearch(ParseTreeVisitor):
 
     # Visit a parse tree produced by EdataLrParser#Not.
     # Not

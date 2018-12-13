@@ -1,6 +1,5 @@
 grammar EdataLr;
 
-
 expr : expr op=('+'|'|') expr # AndOr
      | WORD                   # Word
      | '(' expr ')'           # Parens

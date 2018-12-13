@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+
 # Generated from EdataLr.g4 by ANTLR 4.7.1
 from antlr4 import *
 from EdataLrLexer import EdataLrLexer
 
 # This class defines a complete generic visitor for a parse tree produced by EdataLrParser.
 
+#用于预览语法解析
 class EdataLrVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by EdataLrParser#Not.
